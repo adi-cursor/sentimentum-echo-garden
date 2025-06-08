@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
-import { Settings, ArrowUp } from 'lucide-react';
+import { Settings, ArrowUp, BookOpen } from 'lucide-react';
 
 const TodayView = () => {
   const tasks = [
@@ -120,7 +120,7 @@ const TodayView = () => {
         <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-              <Journal size={16} className="text-primary" />
+              <BookOpen size={16} className="text-primary" />
             </div>
             <div>
               <h3 className="font-medium text-card-foreground">Create an Entry to Look Back</h3>

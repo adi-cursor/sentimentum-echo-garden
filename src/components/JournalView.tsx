@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { Settings } from 'lucide-react';
+import { Settings, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const JournalView = () => {
@@ -66,7 +66,7 @@ const JournalView = () => {
       {/* Empty State Message */}
       <div className="text-center py-12">
         <div className="w-16 h-16 bg-muted/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Journal size={24} className="text-muted-foreground" />
+          <BookOpen size={24} className="text-muted-foreground" />
         </div>
         <h3 className="text-lg font-semibold text-foreground mb-2">Your journal awaits</h3>
         <p className="text-muted-foreground mb-6">Start writing your first entry to begin your reflection journey.</p>

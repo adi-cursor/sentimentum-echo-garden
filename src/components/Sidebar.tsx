@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowUp, Journal, Settings, Plus } from 'lucide-react';
+import { ArrowUp, BookOpen, Settings, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface SidebarProps {
@@ -11,8 +10,8 @@ interface SidebarProps {
 const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
   const menuItems = [
     { id: 'today', label: 'Today', icon: ArrowUp },
-    { id: 'journal', label: 'Journal', icon: Journal },
-    { id: 'guides', label: 'Guides', icon: Journal },
+    { id: 'journal', label: 'Journal', icon: BookOpen },
+    { id: 'guides', label: 'Guides', icon: BookOpen },
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
