@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowUp, BookOpen, Settings, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,52 +17,52 @@ const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
   ];
 
   return (
-    <div className="w-64 bg-sidebar border-r border-sidebar-border h-screen flex flex-col">
-      {/* Header */}
-      <div className="p-6 border-b border-sidebar-border">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-sentimentum rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">S</span>
+    <>
+      {/* Top Bar with Logo and Try Premium */}
+      <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/50">
+        <div className="flex items-center justify-between p-4 max-w-7xl mx-auto">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-sentimentum rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">S</span>
+            </div>
+            <span className="text-foreground font-semibold text-lg">sentimentum</span>
           </div>
-          <span className="text-sidebar-foreground font-semibold text-lg">sentimentum</span>
+          
+          <Button variant="outline" className="text-sm border-border hover:bg-accent">
+            Try Premium
+          </Button>
         </div>
       </div>
 
-      {/* Navigation */}
-      <div className="flex-1 p-4">
-        <nav className="space-y-2">
-          {menuItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => onSectionChange(item.id)}
-              className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-left transition-all duration-200 ${
-                activeSection === item.id
-                  ? 'bg-sidebar-accent text-sidebar-primary-foreground'
-                  : 'text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground'
-              }`}
-            >
-              <item.icon size={18} />
-              <span className="font-medium">{item.label}</span>
-            </button>
-          ))}
-        </nav>
+      {/* Bottom Navigation Bar */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 md:left-1/2 md:transform md:-translate-x-1/2 md:max-w-md">
+        <div className="backdrop-blur-md bg-sidebar/80 border border-sidebar-border rounded-2xl p-2">
+          <nav className="flex items-center justify-around">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => onSectionChange(item.id)}
+                className={`flex flex-col items-center space-y-1 px-3 py-2 rounded-xl transition-all duration-200 ${
+                  activeSection === item.id
+                    ? 'bg-sidebar-accent text-sidebar-primary-foreground'
+                    : 'text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground'
+                }`}
+              >
+                <item.icon size={20} />
+                <span className="text-xs font-medium hidden sm:block">{item.label}</span>
+              </button>
+            ))}
+          </nav>
+        </div>
       </div>
 
-      {/* New Entry Button */}
-      <div className="p-4 border-t border-sidebar-border">
-        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
-          <Plus size={16} className="mr-2" />
-          New Entry
+      {/* Floating New Entry Button */}
+      <div className="fixed bottom-20 right-4 z-50 md:bottom-6">
+        <Button className="h-14 w-14 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
+          <Plus size={24} />
         </Button>
       </div>
-
-      {/* Bottom Section */}
-      <div className="p-4">
-        <Button variant="outline" className="w-full text-sm border-sidebar-border hover:bg-sidebar-accent">
-          Try Premium
-        </Button>
-      </div>
-    </div>
+    </>
   );
 };
 

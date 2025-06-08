@@ -25,9 +25,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex w-full">
+    <div className="min-h-screen bg-background">
       <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
-      <main className="flex-1 overflow-auto">
+      <main className="pt-20 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
         {renderContent()}
       </main>
     </div>
